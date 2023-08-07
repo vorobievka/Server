@@ -10,6 +10,10 @@ public class Client {
 
     public static void main(String[] args) {
 
+        clientSendUsername("Alex");
+
+    }
+    public static void clientSendUsername(String username) {
         String host = "localhost";
         int port = 8081;
 
@@ -18,13 +22,12 @@ public class Client {
                      PrintWriter(clientSocket.getOutputStream(), true);
              BufferedReader in = new BufferedReader(new
                      InputStreamReader(clientSocket.getInputStream()))) {
-            out.println("Alex");
+            out.println(username);
             String resp = in.readLine();
             System.out.println(resp);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
 
     }
 
